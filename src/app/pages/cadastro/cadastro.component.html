@@ -4,7 +4,26 @@
         <div class="container title">
             <h1>Lançamento de geração mensal</h1>
         </div>
-    
+        <div class="container">
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Unidade Geradora:</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected></option>
+                        <option value="1">One</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mês/ano</label> <br>
+                    <input type="month" class="mesAno">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Total KW gerado:</label> <br>
+                    <input type="number">
+                </div>
+                <button type="submit" (click)="cadastrarLancamento()">Cadastrar</button>
+            </form>
+        </div>
 
     </div>
 </div>

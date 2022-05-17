@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUnidades } from 'src/app/models/interface';
+import { ICards } from 'src/app/models/interface';
 
 @Component({
   selector: 'pro-dashboard',
@@ -8,7 +8,7 @@ import { IUnidades } from 'src/app/models/interface';
 })
 export class DashboardComponent implements OnInit {
 
-  unidades:IUnidades[] = [
+  unidades:ICards[] = [
     {
       titulo:'Total unidades',
       quantidade: 60

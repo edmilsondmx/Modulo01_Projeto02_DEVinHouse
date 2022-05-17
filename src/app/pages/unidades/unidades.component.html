@@ -4,6 +4,34 @@
         <div class="container title">
             <h1>Unidades</h1>
         </div>
+        <div class="container">
+            <h2>Lista de unidades</h2>
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Apelido</th>
+                    <th>Local</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let unidade of unidades">
+                        <th>{{ unidade.id }}</th>
+                        <th>{{ unidade.apelido}}</th>
+                        <th>{{ unidade.local }}</th>
+                        <th>{{ unidade.marca }}</th>
+                        <th>{{ unidade.modelo }}</th>
+                        <th><button class="btn btn-success" (click)="editar()">Editar </button></th>
+                        <th><button class="btn btn-danger" (click)="remover()"> Remover </button></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container novaUnidade">
+            <button (click)="cadastroUnidades()">Nova Unidade</button>
+        </div>
     
 
     </div>

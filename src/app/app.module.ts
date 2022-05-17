@@ -8,6 +8,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RouterModule, Route } from '@angular/router';
 import { UnidadesComponent } from './pages/unidades/unidades.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { CadastroUnidComponent } from './components/cadastro-unid/cadastro-unid.component';
 
 const ROUTES:Route[] = [
   {
@@ -20,7 +21,16 @@ const ROUTES:Route[] = [
   },
   {
     path:'unidades',
-    component:UnidadesComponent
+    children:[
+      {
+        path:'',
+        component:UnidadesComponent
+      },
+      {
+        path:'cadastro-unidades',
+        component:CadastroUnidComponent
+      }
+    ]
   },
   {
     path:'cadastro',
@@ -35,7 +45,8 @@ const ROUTES:Route[] = [
     SidebarComponent,
     DashboardComponent,
     UnidadesComponent,
-    CadastroComponent
+    CadastroComponent,
+    CadastroUnidComponent
   ],
   imports: [
     BrowserModule,

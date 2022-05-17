@@ -1,0 +1,18 @@
+<div class="principal">
+    <pro-sidebar></pro-sidebar>
+    <div class="content">
+        <div class="container title">
+            <h1>Dashboard</h1>
+        </div>
+    
+        <div class="container row d-flex">
+            <div *ngFor="let unidade of unidades" class="card col me-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ unidade.titulo }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ unidade.quantidade }}</h6>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

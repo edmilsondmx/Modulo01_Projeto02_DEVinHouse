@@ -1,0 +1,39 @@
+<div class="d-flex row">
+    <img class="img-login col-6" src="./assets/imagens/imagem_login.png" alt="">
+    <div class="col-6">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <img class="img-logo" src="./assets/imagens/Logo.png" alt="">
+            <p class="saudacao">Seja bem vindo</p>
+        </div>
+        <form #form="ngForm" (ngSubmit)="entrar(); form.reset()" class="login d-flex flex-column justify-content-center align-items-center">
+            <div class="input-login">
+                <i class="fas fa-envelope"></i>
+                <input 
+                [(ngModel)]="email"
+                type="email" 
+                name="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                placeholder="E-mail"
+                #endemail="ngModel"
+                required>
+            </div>
+            <small *ngIf="!( endemail .valid || endemail .pristine )" class="text-danger" >E-mail fora do formato devido!
+            </small>
+            <div class="input-login">
+                <i class="fas fa-lock"></i>
+                <input 
+                [(ngModel)]="senha"
+                name="senha"
+                type="password" 
+                placeholder="Senha"
+                minlength="6"
+                #password="ngModel"
+                required>
+            </div>
+            <small *ngIf="!( password.valid || password.pristine )" class="text-danger" >A senha deve conter 6 dígitos!
+            </small>
+            <button 
+            type="submit" [disabled]="!form.valid">Entrar</button>
+        </form>  
+    </div>
+</div>

@@ -1,0 +1,33 @@
+.principal{
+    display: flex;
+    background-color: #FAFAFA;
+}
+.container.row{
+    width: 100%;
+}
+.content{
+    width: 100%;
+    .title{
+        background-color: #ffffff;
+        padding: 15px;
+    }
+}
+
+.card{
+    margin-top: 20px;
+    border-radius: 8px;
+    border: 1px solid #DFE0EB;
+    background-color: #ffffff;
+    h5{
+        font-size: 19px;
+        font-weight: 700;
+        color: #9FA2B4;
+        text-align: center;
+    }
+    h6{
+        font-size: 40px;
+        font-weight: 700;
+        color: #252733;
+        text-align: center;
+    }
+}

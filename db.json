@@ -1,0 +1,58 @@
+{
+  "geracao": [
+    {
+      "data": "2022-05",
+      "kw": 100,
+      "id": "100"
+    },
+    {
+      "data": "2022-06",
+      "kw": 200,
+      "id": "652"
+    },
+    {
+      "data": "2022-06",
+      "kw": 100,
+      "id": "211"
+    },
+    {
+      "data": "2022-03",
+      "kw": 150,
+      "id": "102"
+    }
+  ],
+  "unidades": [
+    {
+      "apelido": "painel 171",
+      "local": "rua lagoa da canoa 30",
+      "marca": "Siemens",
+      "modelo": "170w",
+      "isActive": false,
+      "id": 652
+    },
+    {
+      "apelido": "Edmilson",
+      "local": "Gomes ",
+      "marca": "motorola",
+      "modelo": "150w",
+      "isActive": true,
+      "id": 211
+    },
+    {
+      "apelido": "painel 65",
+      "local": "lajes",
+      "marca": "simmens",
+      "modelo": "200w",
+      "isActive": true,
+      "id": 102
+    },
+    {
+      "apelido": "painel 123",
+      "local": "guarulhos",
+      "marca": "Siemens",
+      "modelo": "110w",
+      "isActive": true,
+      "id": 26
+    }
+  ]
+}

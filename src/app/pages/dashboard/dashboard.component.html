@@ -6,10 +6,31 @@
         </div>
     
         <div class="container row d-flex">
-            <div *ngFor="let unidade of unidades" class="card col me-3">
+            <div class="card col me-3">
                 <div class="card-body">
-                    <h5 class="card-title">{{ unidade.titulo }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ unidade.quantidade }}</h6>
+                    <h5 class="card-title">Total unidades</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ totalDeUnidades }}</h6>
+
+                </div>
+            </div>
+            <div class="card col me-3">
+                <div class="card-body">
+                    <h5 class="card-title">Unidades Ativas</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ unidadesAtivas }}</h6>
+
+                </div>
+            </div>
+            <div class="card col me-3">
+                <div class="card-body">
+                    <h5 class="card-title">Unidades Inativas</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ unidadesInativas }}</h6>
+
+                </div>
+            </div>
+            <div class="card col me-3">
+                <div class="card-body">
+                    <h5 class="card-title">Média de energia</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ mediaDeEnergia +'kw' }}</h6>
 
                 </div>
             </div>

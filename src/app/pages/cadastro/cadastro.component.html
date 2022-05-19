@@ -5,23 +5,39 @@
             <h1>Lançamento de geração mensal</h1>
         </div>
         <div class="container">
-            <form>
+            <form #form="ngForm" (ngSubmit)="cadastrarLancamento(); form.reset()">
                 <div class="mb-3">
                     <label class="form-label">Unidade Geradora:</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected></option>
-                        <option value="1">One</option>
+                    <select 
+                    [(ngModel)]="geracao.id" 
+                    class="form-select" 
+                    name="unidade"
+                    required>
+                        <option selected>Escolha a unidade</option>
+                        <option *ngFor="let unidade of unidades" value="{{ unidade.id }}">{{ unidade.apelido }}</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Mês/ano</label> <br>
-                    <input type="month" class="mesAno">
+                    <input 
+                    [(ngModel)]="geracao.data" 
+                    name="mesAno" 
+                    type="month" 
+                    class="mesAno"
+                    required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Total KW gerado:</label> <br>
-                    <input type="number">
+                    <input 
+                    [(ngModel)]="geracao.kw" 
+                    name="kw" 
+                    type="number" 
+                    placeholder="Ex: 75"
+                    required>
                 </div>
-                <button type="submit" (click)="cadastrarLancamento()">Cadastrar</button>
+                <button 
+                type="submit"
+                [disabled]="!form.valid">Cadastrar</button>
             </form>
         </div>
 

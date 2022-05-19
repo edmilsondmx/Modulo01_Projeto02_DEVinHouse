@@ -9,6 +9,7 @@ import { RouterModule, Route } from '@angular/router';
 import { UnidadesComponent } from './pages/unidades/unidades.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { CadastroUnidComponent } from './components/cadastro-unid/cadastro-unid.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const ROUTES:Route[] = [
   {
@@ -51,7 +52,8 @@ const ROUTES:Route[] = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

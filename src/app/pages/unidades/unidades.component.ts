@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { IUnidades } from 'src/app/models/interface';
+import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
   selector: 'pro-unidades',
@@ -9,48 +12,40 @@ import { IUnidades } from 'src/app/models/interface';
 })
 export class UnidadesComponent implements OnInit {
 
-  unidades:IUnidades[] = [
-    {
-      id : 0,
-      apelido : 'Painel 1',
-      local : 'Rua 5',
-      marca : 'Canadian',
-      modelo : '155w'
-    },
-    {
-      id : 0,
-      apelido : 'Painel 2',
-      local : 'Rua 15',
-      marca : 'Risen',
-      modelo : '100w'
-    },
-    {
-      id : 0,
-      apelido : 'Painel 3',
-      local : 'Rio de Janeiro',
-      marca : 'Hanwha',
-      modelo : '200w'
-    },
-    {
-      id : 0,
-      apelido : 'Painel 4',
-      local : 'São Paulo',
-      marca : 'Hanwha',
-      modelo : '100w'
-    },
-  ]
+  unidades:IUnidades[] = []
 
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private unidadeService:UnidadesService,
+    private http : HttpClient,
+    private serviceTitle: Title) { }
 
   ngOnInit(): void {
-    this.unidades.forEach((item) => item.id = Math.floor(Math.random()* 1000))
+    this.serviceTitle.setTitle('Solar Energy - Unidades');
+    this.buscarUnidade()
   }
 
-  remover(){}
+  buscarUnidade(){
+    this.unidadeService.devolverUnidade()
+    .subscribe((result:IUnidades[]) =>{
+      this.unidades = result;
+    })
+  }
 
-  editar(){}
+  editar(id:number){
+    this.unidadeService.cadastro = false;
+    this.unidadeService.editarUnidade(id)
+    this.router.navigate(['unidades/cadastro-unidades']);
+  }
+
+  remover(id:number){
+    this.unidadeService.removerUnidade(id);
+    this.buscarUnidade();
+  }
+
 
   cadastroUnidades(){
+    this.unidadeService.cadastro = true;
     this.router.navigate(['unidades/cadastro-unidades']);
   }
 

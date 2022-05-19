@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ICards } from 'src/app/models/interface';
+import { Title } from '@angular/platform-browser';
+import { IGeracao, IUnidades } from 'src/app/models/interface';
+import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
   selector: 'pro-dashboard',
@@ -8,28 +10,53 @@ import { ICards } from 'src/app/models/interface';
 })
 export class DashboardComponent implements OnInit {
 
-  unidades:ICards[] = [
-    {
-      titulo:'Total unidades',
-      quantidade: 60
-    },
-    {
-      titulo:'Unidades Ativas',
-      quantidade: 16
-    },
-    {
-      titulo:'Unidades Inativas',
-      quantidade: 43
-    },
-    {
-      titulo:'Média de energia',
-      quantidade: 64
-    }
-  ]
+  unidades:IUnidades[] = [];
+  geracao:IGeracao[] = [];
 
-  constructor() { }
+  totalDeUnidades:number = 0;
+  unidadesAtivas:number = 0;
+  unidadesInativas:number = 0;
+  mediaDeEnergia:number | string = 0
+
+
+  constructor(
+    private unidadeService:UnidadesService,
+    private serviceTitle: Title) { }
 
   ngOnInit(): void {
+    this.serviceTitle.setTitle('Solar Energy - Dashboard');
+    this.buscarUnidades();
+    this.mediaEnergia();
+
+  }
+
+  buscarUnidades(){
+    this.unidadeService.devolverUnidade()
+    .subscribe((result:IUnidades[]) =>{
+      this.unidades = result;
+      this.totalunidades()
+      this.isActive()
+    })
+  }
+  totalunidades(){
+    this.totalDeUnidades = this.unidades.length
+  }
+  isActive(){
+    this.unidades.forEach((item) => {
+      if(item.isActive === true){
+        this.unidadesAtivas += 1;
+      } else{
+        this.unidadesInativas += 1;
+      }
+    })
+  }
+  mediaEnergia(){
+    this.unidadeService.devolverGeracao()
+    .subscribe((result:IGeracao[]) =>{
+      this.geracao = result;
+      let totalEnergia:number = this.geracao.reduce((soma, item) => (soma + item.kw), 0) / this.geracao.length;
+      this.mediaDeEnergia = totalEnergia.toFixed(0)
+    })
   }
 
 }

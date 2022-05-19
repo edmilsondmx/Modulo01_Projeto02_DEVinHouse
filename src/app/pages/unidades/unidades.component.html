@@ -19,12 +19,12 @@
                 <tbody>
                     <tr *ngFor="let unidade of unidades">
                         <th>{{ unidade.id }}</th>
-                        <th>{{ unidade.apelido}}</th>
-                        <th>{{ unidade.local }}</th>
-                        <th>{{ unidade.marca }}</th>
+                        <th>{{ unidade.apelido | titlecase }}</th>
+                        <th>{{ unidade.local | titlecase }}</th>
+                        <th>{{ unidade.marca | titlecase }}</th>
                         <th>{{ unidade.modelo }}</th>
-                        <th><button class="btn btn-success" (click)="editar()">Editar </button></th>
-                        <th><button class="btn btn-danger" (click)="remover()"> Remover </button></th>
+                        <th><button class="btn btn-success" (click)="editar(unidade.id)">Editar </button></th>
+                        <th><button class="btn btn-danger" (click)="remover(unidade.id)"> Remover </button></th>
                     </tr>
                 </tbody>
             </table>

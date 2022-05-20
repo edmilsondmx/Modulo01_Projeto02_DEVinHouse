@@ -10,6 +10,8 @@ import { UnidadesComponent } from './pages/unidades/unidades.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { CadastroUnidComponent } from './components/cadastro-unid/cadastro-unid.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgChartsModule } from 'ng2-charts';
+import { GraficoComponent } from './components/grafico/grafico.component';
 
 const ROUTES:Route[] = [
   {
@@ -47,13 +49,15 @@ const ROUTES:Route[] = [
     DashboardComponent,
     UnidadesComponent,
     CadastroComponent,
-    CadastroUnidComponent
+    CadastroUnidComponent,
+    GraficoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

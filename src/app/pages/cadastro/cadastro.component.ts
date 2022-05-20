@@ -17,6 +17,7 @@ export class CadastroComponent implements OnInit {
   geradores:IGeracao[] = []
 
   geracao:IGeracao = {
+    id_unico:0,
     data:"",
     kw:0,
     id:0,
@@ -35,7 +36,7 @@ export class CadastroComponent implements OnInit {
   buscarUnidade(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
-      this.unidades = result;
+     this.unidades = result.filter((item) => item.isActive == true);
     })
   }
 
@@ -47,14 +48,17 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrarLancamento(){
-    let jaCadastrado = this.geradores.some((item) => item.id == this.geracao.id);
+    this.geracao.id_unico = Math.floor(Math.random()*100)
+    this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, this.geracao)
+    .subscribe(result => {console.log('Geração incluída com sucesso!')});
+/*     let jaCadastrado = this.geradores.some((item) => item.id == this.geracao.id);
     if(jaCadastrado){
       this.http.put<IGeracao>(`${this.enderecoURL}/geracao/${this.geracao.id}`, this.geracao)
       .subscribe(result => {console.log('Geração alterada!')});
     } else{
       this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, this.geracao)
       .subscribe(result => {console.log('Geração incluída com sucesso!')});
-    }
+    } */
 
   }
 

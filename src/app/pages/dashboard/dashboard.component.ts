@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{
       this.geracao = result;
-      let totalEnergia:number = this.geracao.reduce((soma, item) => (soma + item.kw), 0) / this.geracao.length;
+      let totalEnergia:number = this.geracao.reduce((soma, item) => (soma + item.kw), 0) / this.unidadesAtivas;
       this.mediaDeEnergia = totalEnergia.toFixed(0)
     })
   }

@@ -75,3 +75,20 @@ table{
         border: none;
     }
 }
+p{
+    margin: 0;
+}
+.ativo{
+    margin-left: 60px;
+    display: inline-block;
+    width: 40px;
+    height: 10px;
+    background-color: #53575D;
+}
+.inativo{
+    margin-left: 60px;
+    display: inline-block;
+    width: 40px;
+    height: 10px;
+    background-color: #a8aaad;
+}

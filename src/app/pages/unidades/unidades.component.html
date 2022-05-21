@@ -17,7 +17,9 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let unidade of unidades">
+                    <tr *ngFor="let unidade of unidades" [ngStyle]="{
+                        'color':unidade.isActive?'':'#a8aaad'
+                    }">
                         <th>{{ unidade.id }}</th>
                         <th>{{ unidade.apelido | titlecase }}</th>
                         <th>{{ unidade.local | titlecase }}</th>
@@ -28,6 +30,8 @@
                     </tr>
                 </tbody>
             </table>
+            <p><span class="ativo"></span><small> - Unidades Ativa</small></p>
+            <p><span class="inativo"></span><small> - Unidades Inativa</small></p>
         </div>
         <div class="container novaUnidade">
             <button (click)="cadastroUnidades()">Nova Unidade</button>

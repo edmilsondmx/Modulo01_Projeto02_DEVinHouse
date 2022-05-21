@@ -35,4 +35,13 @@
         color: #252733;
         text-align: center;
     }
+    &:hover{
+        border: 1px solid #3751FF;
+        h5{
+            color: #3751FF;
+        }
+        h6{
+            color: #3751FF!important; 
+        }
+    }
 }

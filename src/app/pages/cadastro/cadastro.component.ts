@@ -48,18 +48,15 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrarLancamento(){
-    this.geracao.id_unico = Math.floor(Math.random()*100)
-    this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, this.geracao)
-    .subscribe(result => {console.log('Geração incluída com sucesso!')});
-/*     let jaCadastrado = this.geradores.some((item) => item.id == this.geracao.id);
-    if(jaCadastrado){
-      this.http.put<IGeracao>(`${this.enderecoURL}/geracao/${this.geracao.id}`, this.geracao)
-      .subscribe(result => {console.log('Geração alterada!')});
+    this.geracao.id = Math.floor(Math.random()*100)
+    let jaCadastrada = this.geradores.some((item) => item.data == this.geracao.data && item.id_unico == this.geracao.id_unico);
+    if(jaCadastrada){
+      alert('ERRO: Data já cadastrada no sistema')
     } else{
       this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, this.geracao)
-      .subscribe(result => {console.log('Geração incluída com sucesso!')});
-    } */
-
+      .subscribe(result => {alert('Geração incluída com sucesso!')});
+    }
+    this.buscarGeradores()
   }
 
 }

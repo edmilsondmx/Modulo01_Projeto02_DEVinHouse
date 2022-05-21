@@ -27,20 +27,22 @@ form{
         width: 290px;
         border-radius: 4px;
         background-color: #FBFCFF;
-        border: 1px solid #53575D;
+        border: 1px solid #DFE0EB;
         height: 59px;
-        font-size: 26px;
+        font-size: 24px;
         padding-left: 15px;
+        color: #88888f;
     }
     .mesAno{
         width: 290px;
         height: 50px;
+        color: #88888f;
+        outline: none;
     }
     button{
         width: 200px;
         padding: 16px 24px;
         border-radius: 20px;
-        gap: 24px;
         background-color: #4c5df1;
         box-shadow: 0 20px 50px #37455723;
         color: #ffffff;

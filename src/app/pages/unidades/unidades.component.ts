@@ -39,6 +39,7 @@ export class UnidadesComponent implements OnInit {
   }
 
   remover(id:number){
+    this.unidadeService.alertaUnidadeRemovida()
     this.unidadeService.removerUnidade(id);
     this.buscarUnidade();
   }

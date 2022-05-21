@@ -24,10 +24,13 @@ export class CadastroUnidComponent implements OnInit {
 
   adicionarUnidade(){
     this.unidadeService.cadastrarUnidade()
+    this.unidadeService.alertaUnidadeAdicionada()
   }
 
   salvarAlteracao(id:number){
     this.unidadeService.salvarEdicao(id)
+    this.unidadeService.alertaEdicaoSalva()
+    this.router.navigate(['/unidades'])
   }
 
 }

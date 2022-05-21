@@ -43,10 +43,16 @@
       "id": 84
     },
     {
-      "id_unico": "652",
-      "data": "2022-06",
-      "kw": 90,
-      "id": 1
+      "id_unico": "26",
+      "data": "2022-04",
+      "kw": 150,
+      "id": 17
+    },
+    {
+      "id_unico": "26",
+      "data": "2022-05",
+      "kw": 150,
+      "id": 11
     }
   ],
   "unidades": [
@@ -81,14 +87,6 @@
       "modelo": "100w",
       "isActive": true,
       "id": 635
-    },
-    {
-      "apelido": "painel 111111",
-      "local": "itaquera",
-      "marca": "Siemens",
-      "modelo": "200w",
-      "isActive": false,
-      "id": 978
     }
   ]
 }

@@ -6,7 +6,7 @@ const MOCK_UNIDADES:IUnidades[] = [
         local : 'Rua 5',
         marca : 'Canadian',
         modelo : '155w',
-        isactive: false,
+        isActive: false,
         id : 0,
     },
     {
@@ -14,7 +14,7 @@ const MOCK_UNIDADES:IUnidades[] = [
         local : 'Rua 15',
         marca : 'Risen',
         modelo : '100w',
-        isactive: false,
+        isActive: false,
         id : 0,
     },
     {
@@ -22,7 +22,7 @@ const MOCK_UNIDADES:IUnidades[] = [
         local : 'Rio de Janeiro',
         marca : 'Hanwha',
         modelo : '200w',
-        isactive: false,
+        isActive: false,
         id : 0,
     },
     {
@@ -30,7 +30,7 @@ const MOCK_UNIDADES:IUnidades[] = [
         local : 'São Paulo',
         marca : 'Hanwha',
         modelo : '100w',
-        isactive: false,
+        isActive: false,
         id : 0,
     },
   ]

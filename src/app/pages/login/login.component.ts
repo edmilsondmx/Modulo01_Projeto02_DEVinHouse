@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  visualizar:boolean = false;
+
   email:string = "";
   senha:string = "";
 
@@ -22,6 +24,16 @@ export class LoginComponent implements OnInit {
 
   entrar(){
     this.router.navigate(['dashboard']);
+  }
+
+  visualizarSenha(){
+    let senha = document.getElementById('password')
+    if(this.visualizar){
+      senha?.setAttribute('type', 'password')
+    }else{
+      senha?.setAttribute('type', 'text')
+    }
+    this.visualizar = !this.visualizar
   }
 
 }

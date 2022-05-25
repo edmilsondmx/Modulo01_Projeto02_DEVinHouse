@@ -17,20 +17,23 @@
                 #endemail="ngModel"
                 required>
             </div>
-            <small *ngIf="!( endemail .valid || endemail .pristine )" class="text-danger" >E-mail fora do formato devido!
+            <small *ngIf="!( endemail.valid || endemail.pristine )" class="text-danger" >*E-mail fora do formato devido!
             </small>
             <div class="input-login">
                 <i class="fas fa-lock"></i>
-                <input 
+                <input
                 [(ngModel)]="senha"
                 name="senha"
+                id="password"
                 type="password" 
                 placeholder="Senha"
                 minlength="6"
                 #password="ngModel"
                 required>
+                <abbr title="Mostrar"><i *ngIf="!visualizar" class="fas fa-eye icon-modify" (click)="visualizarSenha()"></i></abbr>
+                <abbr title="Esconder"><i *ngIf="visualizar" class="fa-solid fa-eye-slash" (click)="visualizarSenha()"></i></abbr>
             </div>
-            <small *ngIf="!( password.valid || password.pristine )" class="text-danger" >A senha deve conter 6 dígitos!
+            <small *ngIf="!( password.valid || password.pristine )" class="text-danger" >*A senha deve conter 6 dígitos!
             </small>
             <button 
             type="submit" [disabled]="!form.valid">Entrar</button>

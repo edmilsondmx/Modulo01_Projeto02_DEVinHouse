@@ -13,13 +13,15 @@ export class CadastroComponent implements OnInit {
 
   enderecoURL:string = 'http://localhost:3000';
 
-  unidades:IUnidades[] = []
-  geradores:IGeracao[] = []
+  unidadeFoiSelecionada:boolean = true;
 
-  geracao:IGeracao = {
-    id_unico:0,
+  listaUnidades:IUnidades[] = []
+  geracao:IGeracao[] = []
+
+  novaGeracao:IGeracao = {
+    id_unid:0,
     data:"",
-    kw:0,
+    kw: 0,
     id:0,
   }
 
@@ -36,25 +38,30 @@ export class CadastroComponent implements OnInit {
   buscarUnidade(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
-     this.unidades = result.filter((item) => item.isActive == true);
+     this.listaUnidades = result.filter((item) => item.isActive == true);
     })
   }
 
   buscarGeradores(){
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{
-      this.geradores = result;
+      this.geracao = result;
     })
   }
 
   cadastrarLancamento(){
-    this.geracao.id = Math.floor(Math.random()*100)
-    let jaCadastrada = this.geradores.some((item) => item.data == this.geracao.data && item.id_unico == this.geracao.id_unico);
+    this.novaGeracao.id = Math.floor(Math.random()*100)
+    let jaCadastrada = this.geracao.some((item) => item.data == this.novaGeracao.data && item.id_unid == this.novaGeracao.id_unid);
     if(jaCadastrada){
       this.unidadeService.alertaDataCadastrada()
     } else{
-      this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, this.geracao)
+      if(this.novaGeracao.id_unid == 0){
+        this.unidadeFoiSelecionada = false;
+      } else {
+        this.unidadeFoiSelecionada = true;
+        this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, this.novaGeracao)
       .subscribe(result => {this.unidadeService.alertaKwIncluido()});
+      }
     }
     this.buscarGeradores()
   }

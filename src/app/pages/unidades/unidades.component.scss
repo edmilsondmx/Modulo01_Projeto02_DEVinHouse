@@ -41,23 +41,31 @@ table{
     }
     tr{
         border: 1px solid #E8E8E8;
+        .marcador{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
     }
     th{
         padding: 5px;
     }
 }
-.btn-success{
-    background-color: #8DB51B;
+
+.btn{
     border: none;
     box-shadow: 0px 4px 4px #00000040;
     border-radius: 4px;
+}
+.btn-success{
+    background-color: #8DB51B; 
 }
 .btn-danger{
-    border: none;
     background: #D82D56;
-    box-shadow: 0px 4px 4px #00000040;
-    border-radius: 4px;
 }
+
+
 .novaUnidade{
     width: 90%;
     text-align: end;
@@ -77,18 +85,20 @@ table{
 }
 p{
     margin: 0;
+    span{
+        margin-left: 60px;
+        display: inline-block;
+        width: 40px;
+        height: 10px;
+    }
+    .ativo{
+        background-color: #42b80c;
+
+    }
+    .inativo{
+        background-color: #df2626;
+
+    }
 }
-.ativo{
-    margin-left: 60px;
-    display: inline-block;
-    width: 40px;
-    height: 10px;
-    background-color: #53575D;
-}
-.inativo{
-    margin-left: 60px;
-    display: inline-block;
-    width: 40px;
-    height: 10px;
-    background-color: #a8aaad;
-}
+
+

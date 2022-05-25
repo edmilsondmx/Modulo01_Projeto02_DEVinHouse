@@ -9,7 +9,7 @@ export interface IUnidades {
 }
 
 export interface IGeracao {
-    id_unico:number;
+    id_unid:number;
     data:string;
     kw:number;
     id:number

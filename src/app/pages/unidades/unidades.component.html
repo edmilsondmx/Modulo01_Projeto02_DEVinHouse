@@ -8,6 +8,7 @@
             <h2>Lista de unidades</h2>
             <table>
                 <thead>
+                    <th>#</th>
                     <th>ID</th>
                     <th>Apelido</th>
                     <th>Local</th>
@@ -20,6 +21,9 @@
                     <tr *ngFor="let unidade of unidades" [ngStyle]="{
                         'color':unidade.isActive?'':'#a8aaad'
                     }">
+                        <th><span class="marcador" [ngStyle]="{
+                            'backgroundColor':unidade.isActive?'#42b80c':'#df2626'
+                        }"></span></th>
                         <th>{{ unidade.id }}</th>
                         <th>{{ unidade.apelido | titlecase }}</th>
                         <th>{{ unidade.local | titlecase }}</th>

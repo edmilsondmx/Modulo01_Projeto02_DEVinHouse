@@ -25,7 +25,7 @@ export class GraficoComponent implements OnInit {
     this.buscargeracao()
   }
 
-  public lineChartData: ChartConfiguration['data'] = {
+  lineChartData: ChartConfiguration['data'] = {
     labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
     datasets: [
       {
@@ -41,7 +41,7 @@ export class GraficoComponent implements OnInit {
       }
     ]
   };
-  public lineChartOptions: ChartConfiguration['options'] = {
+  lineChartOptions: ChartConfiguration['options'] = {
     elements: {
       line: {
         tension: 0.5
@@ -55,7 +55,7 @@ export class GraficoComponent implements OnInit {
     }
   };
 
-  public lineChartType: ChartType = 'line';
+  lineChartType: ChartType = 'line';
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 

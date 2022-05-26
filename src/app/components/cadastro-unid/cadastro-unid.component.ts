@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IUnidades } from 'src/app/models/interface';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({

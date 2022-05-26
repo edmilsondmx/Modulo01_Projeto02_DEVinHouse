@@ -12,6 +12,7 @@ import { CadastroUnidComponent } from './components/cadastro-unid/cadastro-unid.
 import { HttpClientModule } from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
 import { GraficoComponent } from './components/grafico/grafico.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const ROUTES:Route[] = [
   {
@@ -50,7 +51,8 @@ const ROUTES:Route[] = [
     UnidadesComponent,
     CadastroComponent,
     CadastroUnidComponent,
-    GraficoComponent
+    GraficoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

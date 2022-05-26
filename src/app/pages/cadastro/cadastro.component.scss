@@ -24,7 +24,7 @@ form{
         color: #53575D;
     }
     select, input{
-        width: 290px;
+        width: 70%;
         border-radius: 4px;
         background-color: #FBFCFF;
         border: 1px solid #DFE0EB;
@@ -34,8 +34,8 @@ form{
         color: #88888f;
     }
     .mesAno{
-        width: 290px;
-        height: 50px;
+        width: 70%;
+        height: 59px;
         color: #88888f;
         outline: none;
     }
@@ -51,4 +51,9 @@ form{
         border: none;
     }
 
+}
+pro-footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

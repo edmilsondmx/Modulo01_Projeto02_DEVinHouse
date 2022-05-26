@@ -1,4 +1,3 @@
-
 export interface IUnidades {
     apelido:string;
     local:string;

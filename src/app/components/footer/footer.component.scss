@@ -1,0 +1,30 @@
+.footer {
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 20px;
+    p{
+        color: #4CBC9A;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .redes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        ul {
+            display: flex;
+            list-style: none;
+            font-size: 20px;
+            margin-bottom: 0;
+            li {
+                margin-right: 40px;
+                a{
+                    color: #4CBC9A;
+                }
+            }
+        }
+    }
+
+}
+

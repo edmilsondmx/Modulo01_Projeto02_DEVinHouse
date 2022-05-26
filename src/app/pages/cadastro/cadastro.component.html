@@ -13,8 +13,8 @@
                     class="form-select" 
                     name="unidade"
                     required>
-                        <option selected disabled value="">Escolha a unidade</option>
-                        <option *ngFor="let unidade of listaUnidades" value="{{ unidade.id }}">{{ unidade.apelido }}</option>
+                        <option [value]="0" disabled>Selecione a unidade</option>
+                        <option *ngFor="let unidade of listaUnidades" [ngValue]=" unidade.id ">{{ unidade.apelido }}</option>
                     </select>
                     <small *ngIf="!unidadeFoiSelecionada" class="text-danger" >*Selecione a Unidade</small>
                 </div>
@@ -42,9 +42,10 @@
                 [disabled]="!form.valid">Cadastrar</button>
             </form>
             <div class="container d-flex align-items-center ">
-                <img class="rounded mt-4" src="https://www.elosol.com.br/wp-content/uploads/2021/01/desenho-home-1.png" style="width: 500px;" alt="energia solar">
+                <img class="rounded mt-4" src="./assets/imagens/energia-solar.png" style="width: 500px;" alt="energia solar">
             </div>
         </div>
 
     </div>
 </div>
+<pro-footer></pro-footer>

@@ -10,7 +10,7 @@ import { UnidadesService } from 'src/app/services/unidades.service';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
-
+  
   enderecoURL:string = 'http://localhost:3000';
 
   unidadeFoiSelecionada:boolean = true;
@@ -28,13 +28,15 @@ export class CadastroComponent implements OnInit {
   constructor(
     private unidadeService:UnidadesService,
     private serviceTitle:Title,
-    private http:HttpClient) { }
+    private http:HttpClient
+  ) { }
 
   ngOnInit(): void {
     this.serviceTitle.setTitle('Solar Energy - Cadastro');
     this.buscarUnidade()
-    this.buscarGeradores()
+    this.buscarGeracao()
   }
+  
   buscarUnidade(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
@@ -42,7 +44,7 @@ export class CadastroComponent implements OnInit {
     })
   }
 
-  buscarGeradores(){
+  buscarGeracao(){
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{
       this.geracao = result;
@@ -50,8 +52,9 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrarLancamento(){
+    this.buscarGeracao()
     this.novaGeracao.id = Math.floor(Math.random()*100)
-    let jaCadastrada = this.geracao.some((item) => item.data == this.novaGeracao.data && item.id_unid == this.novaGeracao.id_unid);
+    let jaCadastrada:boolean = this.geracao.some((item) => item.data == this.novaGeracao.data && item.id_unid == this.novaGeracao.id_unid);
     if(jaCadastrada){
       this.unidadeService.alertaDataCadastrada()
     } else{
@@ -62,8 +65,8 @@ export class CadastroComponent implements OnInit {
         this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, this.novaGeracao)
       .subscribe(result => {this.unidadeService.alertaKwIncluido()});
       }
+      this.buscarGeracao()
     }
-    this.buscarGeradores()
   }
 
 }

@@ -2,8 +2,8 @@
 
 ## Projeto desenvolvido para o curso DEVinHouse - Turma NDD 🚀
 
-<img class="logo-nav" src="assets/imagens/tela_login.jpg" alt="img tela login">
-<img class="logo-nav" src="assets/imagens/tela_dashboard.jpg" alt="img tela dashboard">
+<img class="logo-nav" src="src/assets/imagens/tela_login.jpg" alt="img tela login">
+<img class="logo-nav" src="src/assets/imagens/tela_dashboard.jpg" alt="img tela dashboard">
 
 <h2>🛠️ Tecnologias Usadas</h2>  
 <ul>

@@ -24,7 +24,7 @@
     <li>Uma tela de cadastro de unidade, contendo um formulário com os campos apelido, Local, Marca, modelo e status (Checkbox). Ao clicar no botão salvar, cadastrar unidade via POST na rota /unidades do json-server. Todos os campos do formulário são obrigatórios.</li>
     <li>Implementar botão de remover unidade na tela de Listagem de unidades. Ao clicar no botão deve remover unidade clicada via DELETE na rota /unidades/:id do json-server.</li>
     <li>Implementar botão de editar unidade, ao clicar no botão de editar, enviar usuário para tela de edição de unidade. Ao renderizar a tela, trazer os campos preenchidos com as informações da unidade clicada, ao clicar em salvar, salvar os valores via PUT na rota /unidades/:id do json-server.</li>
-    <li>Implementar tela de Lançamento de geração mensal contendo um formulário com um <Select/> (listando como opção as unidades já cadastradas e ativas, consumindo do json-serve), um campo de data e um campo de total kw gerado (aceita somente números). Ao clicar em salvar, cadastre valores via POST na rota /gerações do json-server.</li>
+    <li>Implementar tela de Lançamento de geração mensal contendo um formulário com um 'Select' (listando como opção as unidades já cadastradas e ativas, consumindo do json-serve), um campo de data e um campo de total kw gerado (aceita somente números). Ao clicar em salvar, cadastre valores via POST na rota /gerações do json-server.</li>
 </ul>
 
 <h2>✒️Autor</h2>

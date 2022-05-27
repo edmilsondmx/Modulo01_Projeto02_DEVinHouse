@@ -17,10 +17,10 @@ export class EditarUnidComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //método que chama as funções de salvar a edição do service, alerta e direciona para a página de lista de unidades
   salvarAlteracao(id:number){
-    this.unidadeService.salvarEdicao(id)
-    this.unidadeService.alertaEdicaoSalva()
-    this.router.navigate(['/unidades'])
+    this.unidadeService.salvarEdicao(id);
+    this.unidadeService.alertaEdicaoSalva();
   }
 
 }

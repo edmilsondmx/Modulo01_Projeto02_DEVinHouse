@@ -14,7 +14,7 @@
                     name="unidade"
                     required>
                         <option [value]="0" disabled>Selecione a unidade</option>
-                        <option *ngFor="let unidade of listaUnidades" [ngValue]=" unidade.id ">{{ unidade.apelido }}</option>
+                        <option *ngFor="let unidade of listaUnidadesAtivas" [ngValue]=" unidade.id ">{{ unidade.apelido }}</option>
                     </select>
                     <small *ngIf="!unidadeFoiSelecionada" class="text-danger" >*Selecione a Unidade</small>
                 </div>

@@ -6,10 +6,12 @@ import { IGeracao } from '../models/interface';
 })
 export class GraficoService {
 
+  //variável que guarda os valores de kw por mês
   valoresKw:number[] = [0,0,0,0,0,0,0,0,0,0,0,0]
 
   constructor() { }
 
+  //método que gera os valores por mês dos gráficos
   gerarGrafico(geracao:IGeracao[]){
     geracao.forEach((item: { data: string; kw: number; }) => {
       if(item.data == '2022-01'){

@@ -10,11 +10,14 @@ import { UnidadesService } from 'src/app/services/unidades.service';
 })
 export class CadastroComponent implements OnInit {
   
+  //variavel que avisa se alguma unidade foi selecionada ou não
   unidadeFoiSelecionada:boolean = true;
 
-  listaUnidades:IUnidades[] = []
+  //lista de unidades ativas e gerações consumidas do json-server
+  listaUnidadesAtivas:IUnidades[] = []
   listaGeracao:IGeracao[] = []
 
+  //objeto que guarda as informações da geração que estiver sendo feita
   novaGeracao:IGeracao = {
     id_unid:0,
     data:"",
@@ -33,13 +36,15 @@ export class CadastroComponent implements OnInit {
     this.buscarGeracao();
   }
   
+  //método que busca as unidades ativas e adicionas na variável
   buscarUnidadesAtivas(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
-     this.listaUnidades = result.filter((item) => item.isActive == true);
+     this.listaUnidadesAtivas = result.filter((item) => item.isActive == true);
     })
   }
 
+  //metodo que chama a função de buscar as gerações no json-server e adiciona na variavel
   buscarGeracao(){
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{
@@ -47,6 +52,7 @@ export class CadastroComponent implements OnInit {
     })
   }
 
+  //método que gera id para a nova geração, verifica se a unidade já tem a data cadastrada no json-server e senão, chama a função de cadastrar a nova geração
   cadastrarLancamento(){
     this.buscarGeracao();
     this.novaGeracao.id = Math.floor(Math.random()*100)

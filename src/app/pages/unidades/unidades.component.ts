@@ -24,6 +24,7 @@ export class UnidadesComponent implements OnInit {
     this.buscarUnidades()
   }
 
+  //método que busca as unidades no jason-sever e adiciona na variavel
   buscarUnidades(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
@@ -31,18 +32,20 @@ export class UnidadesComponent implements OnInit {
     })
   }
 
+  //método que chama a função de editar a unidade e faz a navegação para a pagina
   editarUnid(id:number){
     this.unidadeService.editarUnidade(id)
     this.router.navigate(['unidades/editar-unidades']);
   }
 
+  //método que chama a função de remover a unidade clicada, alerta e atualia a lista
   removerUnid(id:number){
     this.unidadeService.removerUnidade(id);
     this.unidadeService.alertaUnidadeRemovida()
     this.buscarUnidades();
   }
 
-
+  //método que direciona para a página de cadastro de unidades
   cadastroUnidades(){
     this.router.navigate(['unidades/cadastro-unidades']);
   }

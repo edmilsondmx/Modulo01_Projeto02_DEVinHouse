@@ -10,9 +10,11 @@ import { UnidadesService } from 'src/app/services/unidades.service';
 })
 export class DashboardComponent implements OnInit {
 
+  //listas de unidades e gerações consumidas do Json-server
   listaUnidades:IUnidades[] = [];
   listaGeracao:IGeracao[] = [];
 
+  //variáveis onde são guardados os valores dos cards do dashboard
   totalDeUnidades:number = 0;
   unidadesAtivas:number = 0;
   unidadesInativas:number = 0;
@@ -28,6 +30,7 @@ export class DashboardComponent implements OnInit {
     this.buscarUnidades();
   }
 
+  //método que chama a função de buscar as unidades do json-server
   buscarUnidades(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
@@ -37,9 +40,13 @@ export class DashboardComponent implements OnInit {
       this.mediaEnergia();
     })
   }
+
+  //método que inclui a quantidade de unidades da lista na variavel
   totalunidades(){
     this.totalDeUnidades = this.listaUnidades.length;
   }
+
+  //método que verifica a quantidade de unidades ativa e inativa e guarda na variavel
   isActive(){
     this.listaUnidades.forEach((item) => {
       if(item.isActive === true){
@@ -49,6 +56,8 @@ export class DashboardComponent implements OnInit {
       }
     })
   }
+
+  //método que tira a média de kw das unidades e guarda na variavel
   mediaEnergia(){
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{

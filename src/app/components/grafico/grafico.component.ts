@@ -12,9 +12,11 @@ import { UnidadesService } from 'src/app/services/unidades.service';
 })
 export class GraficoComponent implements OnInit {
 
+  //variavel de condicional do grafico
   mostrarGrafico:boolean = false;
 
-  geracao:IGeracao[] = [];  
+  //variável qu guarda a lista de gerações em json-server
+  listaGeracao:IGeracao[] = [];  
 
   constructor(
     private unidadeService:UnidadesService,
@@ -25,6 +27,7 @@ export class GraficoComponent implements OnInit {
     this.buscarGeracao()
   }
 
+  //Configuração do gráfico em linha
   lineChartData: ChartConfiguration['data'] = {
     labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
     datasets: [
@@ -59,18 +62,18 @@ export class GraficoComponent implements OnInit {
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
-  
-
+  //metodo que busca as gerações do json-server, busca informações do service e coloca nas configurações do grafico
   buscarGeracao(){
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{
-      this.geracao = result; 
-      this.buscarGrafico(this.geracao)
+      this.listaGeracao = result; 
+      this.buscarGrafico(this.listaGeracao)
       this.lineChartData.datasets[0].data = this.graficoService.valoresKw
       this.mostrarGrafico = true;
     })
   }
 
+  //método que chama a função que gera a informações do gráfico
   buscarGrafico(geracao:IGeracao[]){
     this.graficoService.gerarGrafico(geracao);
   }

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  //variável que faz a troca de mostrar ou esconder password
   visualizar:boolean = false;
 
   email:string = "";
@@ -22,10 +23,12 @@ export class LoginComponent implements OnInit {
     this.serviceTitle.setTitle('Solar Energy - Login');
   }
 
+  //método click que faz a navegação para o dashboard
   entrar(){
     this.router.navigate(['dashboard']);
   }
 
+  //método para deixar a senha visível ou não
   visualizarSenha(){
     let senha = document.getElementById('password')
     if(this.visualizar){

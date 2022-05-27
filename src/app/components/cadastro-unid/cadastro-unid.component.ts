@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IUnidades } from 'src/app/models/interface';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
@@ -9,22 +10,23 @@ import { UnidadesService } from 'src/app/services/unidades.service';
 })
 export class CadastroUnidComponent implements OnInit {
 
-  constructor(
-    private router:Router,
-    public unidadeService:UnidadesService) { }
+  constructor(public unidadeService:UnidadesService) { }
 
   ngOnInit(): void {
   }
 
+  //método que chama a função de cadastrar unidade e alerta
   adicionarUnidade(){
-    this.unidadeService.cadastrarUnidade()
-    this.unidadeService.alertaUnidadeAdicionada()
+    this.unidadeService.cadastrarUnidade();
+    this.unidadeService.alertaUnidadeAdicionada();
+    this.buscarUnidades()
   }
 
-  salvarAlteracao(id:number){
-    this.unidadeService.salvarEdicao(id)
-    this.unidadeService.alertaEdicaoSalva()
-    this.router.navigate(['/unidades'])
+  //método que atualiza a lista de unidades
+  buscarUnidades(){
+    this.unidadeService.devolverUnidade()
+    .subscribe((result:IUnidades[]) =>
+    result)
   }
 
 }

@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private serviceTitle:Title) { }
 
   ngOnInit(): void {
-    this.serviceTitle.setTitle('Solar Energy - Login')
+    this.serviceTitle.setTitle('Solar Energy - Login');
   }
 
   entrar(){
@@ -29,11 +29,10 @@ export class LoginComponent implements OnInit {
   visualizarSenha(){
     let senha = document.getElementById('password')
     if(this.visualizar){
-      senha?.setAttribute('type', 'password')
+      senha?.setAttribute('type', 'password');
     }else{
-      senha?.setAttribute('type', 'text')
+      senha?.setAttribute('type', 'text');
     }
-    this.visualizar = !this.visualizar
+    this.visualizar = !this.visualizar;
   }
-
 }

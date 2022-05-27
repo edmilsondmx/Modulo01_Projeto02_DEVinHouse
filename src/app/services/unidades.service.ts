@@ -10,9 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class UnidadesService {
 
-  cadastro:boolean = true;
-
-  unidades:IUnidades[] = []
+  listaUnidades:IUnidades[] = []
 
   enderecoURL:string = 'http://localhost:3000';
 
@@ -27,7 +25,8 @@ export class UnidadesService {
 
   constructor(
     private http:HttpClient,
-    private router:Router) { }
+    private router:Router
+  ) { }
 
   devolverUnidade():Observable<IUnidades[]>{
     return this.http.get<IUnidades[]>(`${this.enderecoURL}/unidades`)
@@ -43,25 +42,32 @@ export class UnidadesService {
     this.router.navigate(['/unidades'])
   }
 
+  
   editarUnidade(id:number){
     this.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
-      this.unidades = result;
-      let unidade = this.unidades.filter((item) => item.id == id)
+      this.listaUnidades = result;
+      let unidade = this.listaUnidades.filter((item) => item.id == id)
       this.novaUnidade = unidade[0]
     })
   }
-
+  
   salvarEdicao(id:number){
     this.http.put<IUnidades>(`${this.enderecoURL}/unidades/${id}`, this.novaUnidade)
     .subscribe()
   }
-
+  
+  
   removerUnidade(id:number){
     this.http.delete<IUnidades>(`${this.enderecoURL}/unidades/${id}`)
     .subscribe()
   }
-
+  
+  cadastrarGeracao(novaGeracao: IGeracao){
+    this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, novaGeracao)
+      .subscribe(result => {this.alertaKwIncluido()});
+  }
+  
   alertaUnidadeRemovida(){
     Swal.fire({
       position: 'top',

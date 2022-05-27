@@ -18,7 +18,7 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let unidade of unidades" [ngStyle]="{
+                    <tr *ngFor="let unidade of listaUnidades" [ngStyle]="{
                         'color':unidade.isActive?'':'#a8aaad'
                     }">
                         <th><span class="marcador" [ngStyle]="{
@@ -29,8 +29,8 @@
                         <th>{{ unidade.local | titlecase }}</th>
                         <th>{{ unidade.marca | titlecase }}</th>
                         <th>{{ unidade.modelo }}</th>
-                        <th><button class="btn btn-success" (click)="editar(unidade.id)">Editar </button></th>
-                        <th><button class="btn btn-danger" (click)="remover(unidade.id)"> Remover </button></th>
+                        <th><button class="btn btn-success" (click)="editarUnid(unidade.id)">Editar </button></th>
+                        <th><button class="btn btn-danger" (click)="removerUnid(unidade.id)"> Remover </button></th>
                     </tr>
                 </tbody>
             </table>

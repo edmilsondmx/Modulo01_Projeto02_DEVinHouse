@@ -10,8 +10,8 @@ import { UnidadesService } from 'src/app/services/unidades.service';
 })
 export class DashboardComponent implements OnInit {
 
-  unidades:IUnidades[] = [];
-  geracao:IGeracao[] = [];
+  listaUnidades:IUnidades[] = [];
+  listaGeracao:IGeracao[] = [];
 
   totalDeUnidades:number = 0;
   unidadesAtivas:number = 0;
@@ -26,23 +26,22 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.serviceTitle.setTitle('Solar Energy - Dashboard');
     this.buscarUnidades();
-    this.mediaEnergia();
-
   }
 
   buscarUnidades(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
-      this.unidades = result;
-      this.totalunidades()
-      this.isActive()
+      this.listaUnidades = result;
+      this.totalunidades();
+      this.isActive();
+      this.mediaEnergia();
     })
   }
   totalunidades(){
-    this.totalDeUnidades = this.unidades.length
+    this.totalDeUnidades = this.listaUnidades.length;
   }
   isActive(){
-    this.unidades.forEach((item) => {
+    this.listaUnidades.forEach((item) => {
       if(item.isActive === true){
         this.unidadesAtivas += 1;
       } else{
@@ -53,9 +52,9 @@ export class DashboardComponent implements OnInit {
   mediaEnergia(){
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{
-      this.geracao = result;
-      let totalEnergia = this.geracao.reduce((soma, item) => (soma + item.kw), 0) / this.unidadesAtivas;
-      this.mediaDeEnergia = totalEnergia.toFixed(0)
+      this.listaGeracao = result;
+      let totalEnergia = this.listaGeracao.reduce((soma, item) => (soma + item.kw), 0) / this.unidadesAtivas;
+      this.mediaDeEnergia = totalEnergia.toFixed(0);
     })
   }
 

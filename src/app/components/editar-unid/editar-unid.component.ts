@@ -3,22 +3,18 @@ import { Router } from '@angular/router';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
-  selector: 'pro-cadastro-unid',
-  templateUrl: './cadastro-unid.component.html',
-  styleUrls: ['./cadastro-unid.component.scss']
+  selector: 'pro-editar-unid',
+  templateUrl: './editar-unid.component.html',
+  styleUrls: ['./editar-unid.component.scss']
 })
-export class CadastroUnidComponent implements OnInit {
+export class EditarUnidComponent implements OnInit {
 
   constructor(
     private router:Router,
-    public unidadeService:UnidadesService) { }
+    public unidadeService:UnidadesService
+  ) { }
 
   ngOnInit(): void {
-  }
-
-  adicionarUnidade(){
-    this.unidadeService.cadastrarUnidade()
-    this.unidadeService.alertaUnidadeAdicionada()
   }
 
   salvarAlteracao(id:number){

@@ -35,8 +35,10 @@
             </div>
             <small *ngIf="!( password.valid || password.pristine )" class="text-danger" >*A senha deve conter 6 dígitos!
             </small>
-            <button 
-            type="submit" [disabled]="!form.valid">Entrar</button>
+            <button
+            type="submit" 
+            [disabled]="!form.valid"
+            >Entrar</button>
         </form>  
     </div>
 </div>

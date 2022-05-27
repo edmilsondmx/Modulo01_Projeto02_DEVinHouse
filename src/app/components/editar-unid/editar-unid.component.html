@@ -7,7 +7,7 @@
         <div class="container">
             <h2>Cadastro de Unidade Geradora</h2>
             <div class="container">
-                <form #form="ngForm" (ngSubmit)="adicionarUnidade(); form.reset()">
+                <form #form="ngForm" (ngSubmit)="salvarAlteracao(unidadeService.novaUnidade.id); form.reset()">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Apelido</label>
                         <input 
@@ -69,7 +69,7 @@
                       </div>
                     <button 
                     type="submit"
-                    [disabled]="!form.valid">Salvar</button>
+                    [disabled]="!form.valid">Salvar Alteração</button>
                 </form>
             </div>
         </div>

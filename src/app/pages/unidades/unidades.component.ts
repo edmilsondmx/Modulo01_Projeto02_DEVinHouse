@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -12,42 +11,39 @@ import { UnidadesService } from 'src/app/services/unidades.service';
 })
 export class UnidadesComponent implements OnInit {
 
-  unidades:IUnidades[] = []
+  listaUnidades:IUnidades[] = []
 
   constructor(
     private router:Router,
     private unidadeService:UnidadesService,
-    private http : HttpClient,
-    private serviceTitle: Title) { }
+    private serviceTitle: Title
+  ) { }
 
   ngOnInit(): void {
     this.serviceTitle.setTitle('Solar Energy - Unidades');
-    this.buscarUnidade()
+    this.buscarUnidades()
   }
 
-  buscarUnidade(){
+  buscarUnidades(){
     this.unidadeService.devolverUnidade()
     .subscribe((result:IUnidades[]) =>{
-      this.unidades = result;
+      this.listaUnidades = result;
     })
   }
 
-  editar(id:number){
-    this.unidadeService.cadastro = false;
+  editarUnid(id:number){
     this.unidadeService.editarUnidade(id)
-    this.router.navigate(['unidades/cadastro-unidades']);
+    this.router.navigate(['unidades/editar-unidades']);
   }
 
-  remover(id:number){
-    this.unidadeService.alertaUnidadeRemovida()
+  removerUnid(id:number){
     this.unidadeService.removerUnidade(id);
-    this.buscarUnidade();
+    this.unidadeService.alertaUnidadeRemovida()
+    this.buscarUnidades();
   }
 
 
   cadastroUnidades(){
-    this.unidadeService.cadastro = true;
     this.router.navigate(['unidades/cadastro-unidades']);
   }
-
 }

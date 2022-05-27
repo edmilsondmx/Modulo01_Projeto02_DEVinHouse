@@ -29,6 +29,12 @@
       "data": "2022-05",
       "kw": 100,
       "id": 81
+    },
+    {
+      "id_unid": 102,
+      "data": "2022-06",
+      "kw": 100,
+      "id": 88
     }
   ],
   "unidades": [
@@ -59,10 +65,10 @@
     {
       "apelido": "painel 171",
       "local": "itaquera",
-      "marca": "weg",
-      "modelo": "100w",
-      "isActive": false,
-      "id": 507
+      "marca": "Siemens",
+      "modelo": "110w",
+      "isActive": null,
+      "id": 648
     }
   ]
 }

@@ -13,7 +13,7 @@ export class GraficoService {
 
   //método que gera os valores por mês dos gráficos
   gerarGrafico(geracao:IGeracao[]){
-    geracao.forEach((item: { data: string; kw: number; }) => {
+    geracao.forEach((item:IGeracao) => {
       if(item.data == '2022-01'){
         this.valoresKw[0] += item.kw;
       }else if(item.data == '2022-02'){

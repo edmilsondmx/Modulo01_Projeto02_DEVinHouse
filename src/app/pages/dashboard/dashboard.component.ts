@@ -57,13 +57,15 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  //método que tira a média de kw das unidades e guarda na variavel
+  //método que tira a média de kw das unidades e guarda na variavel, se não tiver nenhuma geração ainda, é retornado 0
   mediaEnergia(){
     this.unidadeService.devolverGeracao()
     .subscribe((result:IGeracao[]) =>{
       this.listaGeracao = result;
-      let totalEnergia = this.listaGeracao.reduce((soma, item) => (soma + item.kw), 0) / this.unidadesAtivas;
-      this.mediaDeEnergia = totalEnergia.toFixed(0);
+      if(this.listaGeracao.length){
+        let totalEnergia = this.listaGeracao.reduce((soma, item) => (soma + item.kw), 0) / this.unidadesAtivas;
+        this.mediaDeEnergia = totalEnergia.toFixed(0);
+      }
     })
   }
 

@@ -1,74 +1,76 @@
 {
   "geracao": [
     {
-      "id_unid": 26,
-      "data": "2022-02",
-      "kw": 100,
-      "id": 89
-    },
-    {
-      "id_unid": 900,
-      "data": "2022-03",
-      "kw": 120,
-      "id": 46
-    },
-    {
-      "id_unid": 102,
+      "id_unid": 577,
       "data": "2022-01",
-      "kw": 100,
-      "id": 3
-    },
-    {
-      "id_unid": 900,
-      "data": "2022-04",
       "kw": 90,
-      "id": 91
+      "id": 53
     },
     {
-      "id_unid": 102,
+      "id_unid": 39,
+      "data": "2022-03",
+      "kw": 100,
+      "id": 17
+    },
+    {
+      "id_unid": 435,
+      "data": "2022-02",
+      "kw": 80,
+      "id": 69
+    },
+    {
+      "id_unid": 176,
       "data": "2022-05",
-      "kw": 100,
-      "id": 81
+      "kw": 120,
+      "id": 8
     },
     {
-      "id_unid": 102,
-      "data": "2022-06",
-      "kw": 100,
-      "id": 88
+      "id_unid": 577,
+      "data": "2022-04",
+      "kw": 65,
+      "id": 6
     }
   ],
   "unidades": [
     {
-      "apelido": "painel 65",
-      "local": "lajes",
-      "marca": "simmens",
+      "apelido": "painel 1",
+      "local": "rua 5",
+      "marca": "canadian",
+      "modelo": "155w",
+      "isActive": true,
+      "id": 577
+    },
+    {
+      "apelido": "Painel 2",
+      "local": "rua 15",
+      "marca": "risen",
+      "modelo": "100w",
+      "isActive": true,
+      "id": 39
+    },
+    {
+      "apelido": "painel 3",
+      "local": "ria de Janeiro",
+      "marca": "hanwha",
       "modelo": "200w",
       "isActive": true,
-      "id": 102
+      "id": 435
     },
     {
-      "apelido": "painel 123",
-      "local": "guarulhos",
-      "marca": "Siemens",
-      "modelo": "110w",
-      "isActive": true,
-      "id": 26
-    },
-    {
-      "apelido": "painel 190",
-      "local": "Lajes",
-      "marca": "Siemens",
-      "modelo": "150w",
-      "isActive": true,
-      "id": 900
-    },
-    {
-      "apelido": "painel 171",
-      "local": "itaquera",
-      "marca": "Siemens",
+      "apelido": "painel 4",
+      "local": "são paulo",
+      "marca": "hanwha",
       "modelo": "100w",
+      "isActive": true,
+      "id": 176
+    },
+    {
+      "apelido": "painel 5",
+      "local": "Lajes",
+      "marca": "Resun",
+      "modelo": "190w",
       "isActive": null,
-      "id": 548
+      "id": 663
     }
   ]
 }

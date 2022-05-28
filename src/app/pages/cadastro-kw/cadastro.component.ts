@@ -31,7 +31,7 @@ export class CadastroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.serviceTitle.setTitle('Solar Energy - Cadastro');
+    this.serviceTitle.setTitle('Solar Energy - Lançamento');
     this.buscarUnidadesAtivas();
     this.buscarGeracao();
   }

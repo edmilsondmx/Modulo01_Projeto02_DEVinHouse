@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 .sidebar{
-    height: 80vh;
+    height: 100vh;
     background-color: #FFFFFF;
 }
 .nav-link{
@@ -20,7 +20,7 @@
         box-shadow: 0 20px 50px #37455725;
         color: #ffffff;
     }
-    i{
+    svg{
         margin-right: 20px;
         font-size: 25px;
     }

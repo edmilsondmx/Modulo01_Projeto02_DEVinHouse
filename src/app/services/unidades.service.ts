@@ -30,7 +30,7 @@ export class UnidadesService {
     private http:HttpClient,
     private router:Router
   ) { }
-
+  
   //método que devolve as unidades do json-server
   devolverUnidade():Observable<IUnidades[]>{
     return this.http.get<IUnidades[]>(`${this.enderecoURL}/unidades`)

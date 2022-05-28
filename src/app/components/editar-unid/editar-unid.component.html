@@ -6,7 +6,7 @@
         </div>
         <div class="container">
             <h2>Cadastro de Unidade Geradora</h2>
-            <div class="container">
+            <div class="container d-flex">
                 <form #form="ngForm" (ngSubmit)="salvarAlteracao(unidadeService.novaUnidade.id); form.reset()">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Apelido</label>
@@ -71,6 +71,9 @@
                     type="submit"
                     [disabled]="!form.valid">Salvar Alteração</button>
                 </form>
+                <div class="container d-flex align-items-center ">
+                    <img class="rounded mt-4" src="./assets/imagens/lampada-energia-limpa.png" style="width: 300px;" alt="energia solar">
+                </div>
             </div>
         </div>
 

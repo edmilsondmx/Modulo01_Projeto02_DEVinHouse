@@ -68,14 +68,15 @@ export class GraficoComponent implements OnInit {
     .subscribe((result:IGeracao[]) =>{
       this.listaGeracao = result; 
       this.buscarGrafico(this.listaGeracao)
-      this.lineChartData.datasets[0].data = this.graficoService.valoresKw
-      this.mostrarGrafico = true;
     })
   }
 
   //método que chama a função que gera a informações do gráfico
   buscarGrafico(geracao:IGeracao[]){
+    this.graficoService.valoresKw = [0,0,0,0,0,0,0,0,0,0,0,0];
     this.graficoService.gerarGrafico(geracao);
+    this.lineChartData.datasets[0].data = this.graficoService.valoresKw
+    this.mostrarGrafico = true;
   }
   
 }

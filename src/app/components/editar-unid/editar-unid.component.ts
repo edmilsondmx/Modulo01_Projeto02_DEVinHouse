@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
@@ -10,11 +10,12 @@ import { UnidadesService } from 'src/app/services/unidades.service';
 export class EditarUnidComponent implements OnInit {
 
   constructor(
-    private router:Router,
-    public unidadeService:UnidadesService
+    public unidadeService:UnidadesService,
+    private serviceTitle:Title
   ) { }
 
   ngOnInit(): void {
+    this.serviceTitle.setTitle('Solar Energy - Editar');
   }
 
   //método que chama as funções de salvar a edição do service, alerta e direciona para a página de lista de unidades

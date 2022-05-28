@@ -8,7 +8,7 @@
             <form #form="ngForm" (ngSubmit)="cadastrarLancamento(); form.reset()">
                 <div class="mb-3">
                     <label class="form-label">Unidade Geradora:</label>
-                    <select 
+                    <select
                     [(ngModel)]="novaGeracao.id_unid"
                     class="form-select" 
                     name="unidade"

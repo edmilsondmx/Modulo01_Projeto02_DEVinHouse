@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { IUnidades } from 'src/app/models/interface';
+import { AlertasService } from 'src/app/services/alertas.service';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class UnidadesComponent implements OnInit {
   constructor(
     private router:Router,
     private unidadeService:UnidadesService,
-    private serviceTitle: Title
+    private serviceTitle: Title,
+    private alertasService:AlertasService
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +43,7 @@ export class UnidadesComponent implements OnInit {
   //método que chama a função de remover a unidade clicada, alerta e atualia a lista
   removerUnid(id:number){
     this.unidadeService.removerUnidade(id);
-    this.unidadeService.alertaUnidadeRemovida()
+    this.alertasService.alertaUnidadeRemovida()
     this.buscarUnidades();
   }
 

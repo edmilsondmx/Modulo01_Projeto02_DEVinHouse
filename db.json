@@ -29,6 +29,18 @@
       "data": "2022-04",
       "kw": 100,
       "id": 40
+    },
+    {
+      "id_unid": 308,
+      "data": "2022-06",
+      "kw": 90,
+      "id": 13
+    },
+    {
+      "id_unid": 577,
+      "data": "2022-06",
+      "kw": 100,
+      "id": 88
     }
   ],
   "unidades": [
@@ -61,16 +73,16 @@
       "local": "são paulo",
       "marca": "hanwha",
       "modelo": "100w",
-      "isActive": true,
+      "isActive": false,
       "id": 176
     },
     {
-      "apelido": "painel 5",
-      "local": "Lajes",
+      "apelido": "painel 8",
+      "local": "guarulhos",
       "marca": "Resun",
-      "modelo": "190w",
-      "isActive": null,
-      "id": 663
+      "modelo": "200w",
+      "isActive": true,
+      "id": 674
     }
   ]
 }

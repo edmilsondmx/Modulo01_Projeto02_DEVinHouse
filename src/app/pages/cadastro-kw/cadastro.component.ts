@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { IGeracao, IUnidades } from 'src/app/models/interface';
+import { AlertasService } from 'src/app/services/alertas.service';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
@@ -27,6 +28,7 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private unidadeService:UnidadesService,
+    private alertasService:AlertasService,
     private serviceTitle:Title
   ) { }
 
@@ -58,7 +60,7 @@ export class CadastroComponent implements OnInit {
     this.novaGeracao.id = Math.floor(Math.random()*100)
     let dataJaCadastrada:boolean = this.listaGeracao.some((item) => item.data == this.novaGeracao.data && item.id_unid == this.novaGeracao.id_unid);
     if(dataJaCadastrada){
-      this.unidadeService.alertaDataCadastrada();
+      this.alertasService.alertaDataCadastrada();
     } else{
       if(this.novaGeracao.id_unid == 0){
         this.unidadeFoiSelecionada = false;

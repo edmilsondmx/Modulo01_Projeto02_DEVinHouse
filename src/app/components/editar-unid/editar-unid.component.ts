@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { AlertasService } from 'src/app/services/alertas.service';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class EditarUnidComponent implements OnInit {
 
   constructor(
     public unidadeService:UnidadesService,
+    public alertasService:AlertasService,
     private serviceTitle:Title
   ) { }
 
@@ -21,7 +23,7 @@ export class EditarUnidComponent implements OnInit {
   //método que chama as funções de salvar a edição do service, alerta e direciona para a página de lista de unidades
   salvarAlteracao(id:number){
     this.unidadeService.salvarEdicao(id);
-    this.unidadeService.alertaEdicaoSalva();
+    this.alertasService.alertaEdicaoSalva();
   }
 
 }

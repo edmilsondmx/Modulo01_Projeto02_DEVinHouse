@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IGeracao, IUnidades } from '../models/interface';
-import Swal from 'sweetalert2';
+import { AlertasService } from './alertas.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,8 @@ export class UnidadesService {
 
   constructor(
     private http:HttpClient,
-    private router:Router
+    private router:Router,
+    private alertasService:AlertasService
   ) { }
   
   //método que devolve as unidades do json-server
@@ -74,70 +75,8 @@ export class UnidadesService {
   //método que cadastra nova geração de kw no json-server
   cadastrarGeracao(novaGeracao: IGeracao){
     this.http.post<IGeracao>(`${this.enderecoURL}/geracao`, novaGeracao)
-      .subscribe(result => {this.alertaKwIncluido()});
+      .subscribe(result => {this.alertasService.alertaKwIncluido()});
   }
 
-
-  
-  //alerta de unidade removida no json-server
-  alertaUnidadeRemovida(){
-    Swal.fire({
-      position: 'top',
-      text: '❌ Unidade Removida!',
-      width: 350,
-      color: '#D82D56',
-      background: '#f7d2db',
-      showConfirmButton: false,
-      timer: 700
-    })
-  }
-  //alerta de unidade adicionada no json-server
-  alertaUnidadeAdicionada(){
-    Swal.fire({
-      position: 'top',
-      text: '✔️ Unidade adicionada com Sucesso!',
-      width: 400,
-      color: '#8DB51B',
-      background: '#edf7d3',
-      showConfirmButton: false,
-      timer: 800
-    })
-  }
-  //alerta de unidade editada no json-server
-  alertaEdicaoSalva(){
-    Swal.fire({
-      position: 'top',
-      text: '✔️ Alteração salva com sucesso!',
-      width: 400,
-      color: '#8DB51B',
-      background: '#edf7d3',
-      showConfirmButton: false,
-      timer: 800
-    })
-  }
-  //alerta data de geração ja feita no json-server
-  alertaDataCadastrada(){
-    Swal.fire({
-      position: 'top',
-      text: '❌ ERRO: Data já cadastrada no sistema',
-      width: 350,
-      color: '#D82D56',
-      background: '#f7d2db',
-      showConfirmButton: false,
-      timer: 1000
-    })
-  }
-  //alerta de kw incluido no json-server
-  alertaKwIncluido(){
-    Swal.fire({
-      position: 'top',
-      text: '✔️ Geração incluída com sucesso!',
-      width: 400,
-      color: '#8DB51B',
-      background: '#edf7d3',
-      showConfirmButton: false,
-      timer: 800
-    })
-  }
 
 }

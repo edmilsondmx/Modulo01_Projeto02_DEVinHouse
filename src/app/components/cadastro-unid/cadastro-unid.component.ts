@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { IUnidades } from 'src/app/models/interface';
+import { AlertasService } from 'src/app/services/alertas.service';
 import { UnidadesService } from 'src/app/services/unidades.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class CadastroUnidComponent implements OnInit {
 
   constructor(
     public unidadeService:UnidadesService,
+    public alertasService:AlertasService,
     private serviceTitle:Title) { }
 
   ngOnInit(): void {
@@ -22,7 +23,7 @@ export class CadastroUnidComponent implements OnInit {
   //método que chama a função de cadastrar unidade e alerta
   adicionarUnidade(){
     this.unidadeService.cadastrarUnidade();
-    this.unidadeService.alertaUnidadeAdicionada();
+    this.alertasService.alertaUnidadeAdicionada();
     this.buscarUnidades()
   }
 
